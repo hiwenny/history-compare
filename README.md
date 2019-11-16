@@ -1,7 +1,7 @@
 # 4. Property Historical Performance Comparison
 This is a spike app for comparing historical performance of properties, part of (what I consider a) sensible investing system.
 
-<!-- <img src="https://raw.githubusercontent.com/hiwenny/history-compare/9261c81718df412b7dcbd6a344cd0fc0fee5e06d/readme/flow_of_Information.svg?sanitize=true"> -->
+<img src="https://raw.githubusercontent.com/hiwenny/history-compare/43d341629e85b7ff493e6a0c07caf70ab52b4a35/readme/stages_of_investing.svg?sanitize=true">
 
 Step 3.4. of asset (property) research, after:
 1. Financing calculations (min. 3 scenarios - best, worst, expected)
