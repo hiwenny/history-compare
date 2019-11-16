@@ -73,7 +73,7 @@ Generated using [Create React App](https://github.com/facebook/create-react-app)
 ## Design Considerations
 
 ### Modern React
-To start with I want to minimise React-related libraries used. That means doing away with redux, for starters. 
+I'd like to minimise React-related libraries used. That means doing away with redux, for starters. 
 
 This way requires special care to design components hierarchy according to the propagation of components affected by a state change.
 
@@ -88,10 +88,9 @@ Some considerations on the tradeoffs:
   - Minimize the use of class
   - Hooks for state
 
-### Third-party provider
+### Data source
 CoreLogic was the first choice, but ultimately it comes down to whether the cost to integrate is acceptable vs the benefit it provides.
 
 If not, it should be easily repurposed for a different source of data, or provide data entry capability.
 
-![Alt text](./readme/flow_of_information.svg)
 <img src="./readme/flow_of_information.svg">
