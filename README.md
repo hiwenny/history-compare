@@ -52,8 +52,6 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 - Display property data in table
 - Export to pdf/csv
 
-** remember to put in propertyId as key to prevent rerendering**
-
 ### Enhancement redux state data:
 - Add/remove data
 - De-duplicate data

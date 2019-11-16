@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 
 function App() {
+  // remember to put in propertyId as key to prevent rerendering**
   return (
     <div className="App">
       <header className="App-header">
