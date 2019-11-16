@@ -1,14 +1,18 @@
 # 4. Property Historical Performance Comparison
-This is a spike app for a comparison app.
+This is a spike app for comparing historical performance of properties, part of (what I consider a) sensible investing system.
 
-Initial design is to test out CoreLogic APIs, specifically to compare the history of individual properties in a compact way.
+<img src="https://raw.githubusercontent.com/hiwenny/history-compare/43d341629e85b7ff493e6a0c07caf70ab52b4a35/readme/stages_of_investing.svg?sanitize=true">
 
-Step 4 of property research, after:
+Step 3.4. of asset (property) research, after:
 1. Financing calculations (min. 3 scenarios - best, worst, expected)
 2. Cash flow analysis with mortgage (projection monthly and yearly)
 3. Asset selection - Suburb search (ABS data etc.)
 
+Initial design is to test out CoreLogic APIs, specifically to compare the history of individual properties in a compact way.
+
 ## Table of Contents
+- [Available Scripts](#available-scripts)
+- [Roadmap](#roadmap)
 - [Design Considerations](#design-considerations)
 
 ## Available Scripts
