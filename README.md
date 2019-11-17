@@ -52,8 +52,10 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
+<b>This app was generated using [Create React App](https://github.com/facebook/create-react-app) so all scripts should behave in a standard manner.</b>
+
 ## Roadmap
-[Project board in here](https://trello.com/b/TR2LH5j6/history-compare)
+[Project board in here.](https://trello.com/b/TR2LH5j6/history-compare)
 
 ### Base functionality:
 - Search exact property
@@ -78,8 +80,6 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 ### More features:
 - Google Map integration
 - Optional post-demand test: Allow users to use app - authentication in server (explore AuthO)?
-
-Generated using [Create React App](https://github.com/facebook/create-react-app).
 
 ## Design Considerations
 
