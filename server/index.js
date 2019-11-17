@@ -1,12 +1,9 @@
 const express = require('express');
-const bodyParser = require('body-parser')
+const bodyParser = require('body-parser');
 const path = require('path');
 const app = express();
 app.use(express.static(path.join(__dirname, 'build')));
 app.use(bodyParser.json());
-
-// Third-party integrations initialisation
-require('./integrations/corelogic')(app);
 
 app.get('/ping', function (req, res) {
  return res.send('pong');
