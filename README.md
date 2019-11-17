@@ -11,9 +11,17 @@ Step 3.4. of asset (property) research, after:
 Initial design is to test out CoreLogic APIs, specifically to compare the history of individual properties in a compact way.
 
 ## Table of Contents
+- [Usage](#usage)
 - [Available Scripts](#available-scripts)
 - [Roadmap](#roadmap)
 - [Design Considerations](#design-considerations)
+
+## Usage
+Public access has been de-scoped by changing its use case to private use only. 
+
+Private use here means cloning this repo and running the app locally, requiring you to set up a local `.env` to contain your credentials for third-party integrations, as opposed to a proper deployment script. (TBC) I will included a blank `.env` with comments to list the required credentials.
+
+To open it up properly there's a lot of work setting up proper authentication and API key management. This is not worth the effort should we go down the path of `data entry` instead of `third party integration`, so I'm keeping it light for POC.
 
 ## Available Scripts
 
@@ -52,7 +60,7 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 - Display property data in table
 - Export to pdf/csv
 
-### Enhancement redux state data:
+### Enhancement state data:
 - Add/remove data
 - De-duplicate data
 - Alphabetical/ascending rows ordering
@@ -68,23 +76,23 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 
 ### More features:
 - Google Map integration
-- JWT validation using created credential
+- Optional post-demand test: Allow users to use app - authentication in server (explore AuthO)?
 
 Generated using [Create React App](https://github.com/facebook/create-react-app).
 
 ## Design Considerations
 
 ### Modern React
-I'd like to minimise React-related libraries used. That means doing away with redux, for starters. 
+I'd like to minimise React-related libraries used. That means doing away with redux, for starters.
 
 This way requires special care to design components hierarchy according to the propagation of components affected by a state change.
 
-Some considerations on the tradeoffs:
+Some considerations on the decisions:
 - No Redux:
   - substitute with HOC for enhancements
   - Tradeoff is the ability to persist - outside of setting localStorage manually. In that case just use Redux...
   - On the flip side, since the app is designed to be a blank state every time, this could work. The use of states means I don't have to deal with clearing and resets.
-  - Other maybe-tradeoff is having to put a speed bump on exit to make sure the user doesn't navigate away accidentally and lose data.
+  - Other maybe-tradeoff is having to put a speed bump on exit to make sure the user doesn't navigate away accidentally and lose data. More annoying, but alas.
 
 - Functional pattern all over:
   - Minimize the use of class
