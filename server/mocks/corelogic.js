@@ -1,12 +1,152 @@
-const nock = require('nock');
-
 // To move base to env
+const { search } = require('../mapping');
+
+// Proxy API integration to be in server to better handle auth
+// UI for business logic ONLY
 const uat = 'https://api-uat.corelogic.asia/sandbox';
 const prod = 'https://api.corelogic.asia';
 
 // Address Match
 // [unitNumber] / [streetNumber] [streetName] [streetType] [suburb] [stateCode] [postcode]
-nock(uat)
-  .get('/search').reply(200, {
-    test: 'hello',
-  });
+function corelogicMocks(app) {
+  app.get(search, (req, res) => res.status(200).send({
+    suggestions: [
+      {
+        councilAreaId: 397,
+        countryId: 113,
+        isBodyCorporate: false,
+        isUnit: false,
+        localityId: 2795,
+        postcodeId: 401249,
+        propertyId: 16,
+        stateId: 4,
+        streetId: 16,
+        suggestion: '1 Aardvark Street Adelaide SA 5000',
+        suggestionType: 'address',
+      },
+      {
+        councilAreaId: 706,
+        countryId: 113,
+        isBodyCorporate: false,
+        isUnit: false,
+        localityId: 14489,
+        postcodeId: 501949,
+        propertyId: 25,
+        stateId: 5,
+        streetId: 25,
+        suggestion: '1 Aardvark Street Baldivis WA 6171',
+        suggestionType: 'address',
+      },
+      {
+        councilAreaId: 520,
+        countryId: 113,
+        isBodyCorporate: false,
+        isUnit: false,
+        localityId: 5911,
+        postcodeId: 200648,
+        propertyId: 22,
+        stateId: 2,
+        streetId: 22,
+        suggestion: '1 Aardvark Street Beaconsfield VIC 3807',
+        suggestionType: 'address',
+      },
+      {
+        councilAreaId: 13,
+        countryId: 113,
+        isBodyCorporate: false,
+        isUnit: false,
+        localityId: 5681,
+        postcodeId: 100266,
+        propertyId: 4,
+        stateId: 1,
+        streetId: 4,
+        suggestion: '1 Aardvark Street Blacktown NSW 2148',
+        suggestionType: 'address',
+      },
+      {
+        councilAreaId: 284,
+        countryId: 113,
+        isBodyCorporate: false,
+        isUnit: false,
+        localityId: 3723,
+        postcodeId: 300303,
+        propertyId: 13,
+        stateId: 3,
+        streetId: 13,
+        suggestion: '1 Aardvark Street Broadbeach QLD 4218',
+        suggestionType: 'address',
+      },
+      {
+        councilAreaId: 706,
+        countryId: 113,
+        isBodyCorporate: false,
+        isUnit: false,
+        localityId: 10524,
+        postcodeId: 501947,
+        propertyId: 26,
+        stateId: 5,
+        streetId: 26,
+        suggestion: '1 Aardvark Street Cooloongup WA 6168',
+        suggestionType: 'address',
+      },
+      {
+        councilAreaId: 487,
+        countryId: 113,
+        isBodyCorporate: false,
+        isUnit: false,
+        localityId: 11101,
+        postcodeId: 601215,
+        propertyId: 19,
+        stateId: 6,
+        streetId: 19,
+        suggestion: '1 Aardvark Street Devonport TAS 7310',
+        suggestionType: 'address',
+      },
+      {
+        councilAreaId: 197,
+        countryId: 113,
+        isBodyCorporate: false,
+        isUnit: false,
+        localityId: 9417,
+        postcodeId: 700176,
+        propertyId: 7,
+        stateId: 7,
+        streetId: 7,
+        suggestion: '1 Aardvark Street Durack NT 0830',
+        suggestionType: 'address',
+      },
+      {
+        councilAreaId: 403,
+        countryId: 113,
+        isBodyCorporate: false,
+        isUnit: false,
+        localityId: 16199,
+        postcodeId: 400961,
+        propertyId: 17,
+        stateId: 4,
+        streetId: 17,
+        suggestion: '1 Aardvark Street Glenside SA 5065',
+        suggestionType: 'address',
+      },
+      {
+        councilAreaId: 191,
+        countryId: 113,
+        isBodyCorporate: false,
+        isUnit: false,
+        localityId: 11489,
+        postcodeId: 701333,
+        propertyId: 8,
+        stateId: 7,
+        streetId: 8,
+        suggestion: '1 Aardvark Street Humpty Doo NT 0836',
+        suggestionType: 'address',
+      },
+    ],
+    systemInfo: {
+      instanceName: '60:8080',
+      requestDate: '2019-11-19T20:03:13.223+10:00',
+    },
+  }));
+}
+
+module.exports = corelogicMocks;
