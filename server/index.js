@@ -2,16 +2,14 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
 
+if (process.env.NODE_ENV !== 'production') require('dotenv').config();
+
 const app = express();
 app.use(express.static(path.join(__dirname, 'build')));
 app.use(bodyParser.json());
 
-// if NODE_ENV===development use mocks
-if (process.env.NODE_ENV !== 'production') require('./mocks/corelogic')(app);
-if (process.env.NODE_ENV !== 'production') require('dotenv').config();
+// Add in the routes
+require('./routes/property')(app);
 
-// app.get('/', function (req, res) {
-//   res.sendFile(path.join(__dirname, 'build', 'index.html'));
-// });
 
 app.listen(process.env.PORT || 8080);
