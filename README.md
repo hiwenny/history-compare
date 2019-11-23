@@ -81,6 +81,9 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 - Google Map integration
 - Optional post-demand test: Allow users to use app - authentication in server (explore AuthO)?
 
+### DevTools
+- PACT/Swagger for API Contract and test?
+
 ## Design Considerations
 
 ### Modern React
