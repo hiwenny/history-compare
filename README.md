@@ -15,6 +15,7 @@ Initial design is to test out CoreLogic APIs, specifically to compare the histor
 - [Available Scripts](#available-scripts)
 - [Roadmap](#roadmap)
 - [Design Considerations](#design-considerations)
+- [API and State Diagram](API_and_State_diagram.md)
 
 ## Usage
 Public access has been de-scoped by changing its use case to private use only. Private use here means cloning this repo and running the app locally.
