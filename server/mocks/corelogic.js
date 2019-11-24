@@ -1,3 +1,34 @@
+const authentication = {
+  access_token: 'sampleSomeToken',
+  token_type: 'bearer',
+  expires_in: 43199,
+  scope: 'CRT MAP PTY SGT STS TTL',
+  iss: 'https://access-api.corelogic.asia',
+  env_access_restrict: true,
+  geo_codes: [
+    'ACT - Full State',
+    'NSW - Metro',
+    'NSW - Regional',
+    'NT - Full State',
+    'QLD - Metro',
+    'QLD - Regional',
+    'SA - Metro',
+    'SA - Regional',
+    'TAS - Full State',
+    'VIC - (AA) Full State',
+    'VIC - Full State',
+    'VIC - Metro',
+    'VIC - Regional',
+    'WA - Metro',
+    'WA - Regional',
+    'North Island',
+    'South Island',
+  ],
+  roles: [],
+  source_exclusion: [],
+
+};
+
 const suggestions = {
   suggestions: [
     {
@@ -138,5 +169,6 @@ const suggestions = {
 };
 
 module.exports = {
+  authentication,
   suggestions,
 };

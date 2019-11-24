@@ -12,6 +12,16 @@ const URLS = {
   PROD: 'https://api.corelogic.asia',
 };
 
+// function authenticate(app) {
+//   // Authentication
+//   // Always uses prod because they use OAuth
+//   axios.get('https://api.corelogic.asia/access/oauth/token?client_id=52AnHYQOxFalBi7wyFdWGpdghERPiFWD&client_secret=4bc1eFC2s9PohPXD&grant_type=client_credentials', (req, res) => {
+//     console.log('@@ req', req);
+//     console.log('@@ res', res);
+//     res.send('hello');
+//   });
+// }
+
 // Address Match
 // [unitNumber] / [streetNumber] [streetName] [streetType] [suburb] [stateCode] [postcode]
 function propertyAPI(app) {
@@ -19,7 +29,7 @@ function propertyAPI(app) {
     const NODE_ENV = process.env.NODE_ENV.toUpperCase();
     // Use mocks in development
     // Next level: Can this intercept and stub the response instead?
-    if (NODE_ENV === 'development') return useMocks([req, res], paths.search);
+    if (NODE_ENV === 'DEVELOPMENT') return useMocks([req, res], paths.search);
     return axios
       .get(`${URLS[NODE_ENV]}/property/au/v2/suggest.json?q=${req.query.address}`)
       .then((response) => res.status(response.status).send(response.data))
