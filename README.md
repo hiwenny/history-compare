@@ -11,13 +11,13 @@ Step 3.4. of asset (property) research, after:
 Initial design is to test out CoreLogic APIs, specifically to compare the history of individual properties in a compact way.
 
 ## Table of Contents
-- [Usage](#usage)
+- [Quick Start](#quick-start)
 - [Available Scripts](#available-scripts)
-- [Roadmap](#roadmap)
-- [Design Considerations](#design-considerations)
-- [API and State Diagram](API_and_State_diagram.md)
+- [API and State Diagram](API_and_State_Diagram.md)
+- [Design Considerations](Design_Considerations.md)
+- [Roadmap](Roadmap.md)
 
-## Usage
+## Quick Start
 Public access has been de-scoped by changing its use case to private use only. Private use here means cloning this repo and running the app locally.
 
 **You need to pass in `$AUTH_TOKEN` when running UAT to use the actual CoreLogic APIs**
@@ -61,58 +61,3 @@ Your app is ready to be deployed!
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
 <b>This app was generated using [Create React App](https://github.com/facebook/create-react-app) so all scripts should behave in a standard manner.</b>
-
-## Roadmap
-[Project board in here.](https://trello.com/b/TR2LH5j6/history-compare)
-
-### Base functionality:
-- Search exact property
-- Fetch price history data
-- Display property data in table
-- Export to pdf/csv
-
-### Enhancement state data:
-- Add/remove data
-- De-duplicate data
-- Alphabetical/ascending rows ordering
-- Show/hide columns toggling
-- Other rows ordering
-- Multiple rows ordering (as excel does)
-- Caching API calls
-
-### Enhancement animation:
-- Loader while fetching data
-- Animation for signalling already-existing property (flash alert border and highlight)
-- react-virtualized (https://bvaughn.github.io/react-virtualized/#/components/Table) for long lists lightweight rendering
-
-### More features:
-- Google Map integration
-- Optional post-demand test: Allow users to use app - authentication in server (explore AuthO)?
-
-### DevTools
-- PACT/Swagger for API Contract and test?
-
-## Design Considerations
-
-### Modern React
-I'd like to minimise React-related libraries used. That means doing away with redux, for starters.
-
-This way requires special care to design components hierarchy according to the propagation of components affected by a state change.
-
-Some considerations on the decisions:
-- No Redux:
-  - substitute with HOC for enhancements
-  - Tradeoff is the ability to persist - outside of setting localStorage manually. In that case just use Redux...
-  - On the flip side, since the app is designed to be a blank state every time, this could work. The use of states means I don't have to deal with clearing and resets.
-  - Other maybe-tradeoff is having to put a speed bump on exit to make sure the user doesn't navigate away accidentally and lose data. More annoying, but alas.
-
-- Functional pattern all over:
-  - Minimize the use of class
-  - Hooks for state
-
-### Data source
-CoreLogic was the first choice, but ultimately it comes down to whether the cost to integrate is acceptable vs the benefit it provides.
-
-If not, it should be easily repurposed for a different source of data, or provide data entry capability.
-
-<img src="https://raw.githubusercontent.com/hiwenny/history-compare/9261c81718df412b7dcbd6a344cd0fc0fee5e06d/readme/flow_of_Information.svg?sanitize=true">
