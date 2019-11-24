@@ -46,18 +46,9 @@ Runs app in UAT mode, where it's fully integrated with test APIs.
 To run this you need to pass in your Authorization token, which is a shortcut to bypass the whole OAuth proper authentication. You can get the token through CoreLogic's Developer Swagger portal in any of their API demo.
 
 ### `yarn test`
-
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Runs unit tests as per `react-scripts test`
 
 ### `yarn build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Builds for production as per `react-scripts build`
 
 <b>This app was generated using [Create React App](https://github.com/facebook/create-react-app) so all scripts should behave in a standard manner.</b>
