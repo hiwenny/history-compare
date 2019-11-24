@@ -2,14 +2,15 @@
 This page documents the mappings of the BFF API layer and its effect on the App State.
 
 ## Table of Contents
+- [APIs](#APIs)
+- [Putting It All Together](#putting-it-all-together)
+- [Data Source](#data-source)
+
 ## APIs:
-- [search](#search)
+  - [search](#search)
 
-[Putting It All Together](#putting-it-all-together)
 
-[Data Source](#data-source)
-
-## `/search`
+### `/search`
 Use this to search for properties. Right now it's connected to CoreLogic API `/suggestions` but it can be anything really.
 
 <img src="https://raw.githubusercontent.com/hiwenny/history-compare/bdcab6935a57dcb245843a86cf6b7ca8f6026369/readme/search.svg?sanitize=true">
