@@ -7,23 +7,31 @@ const paths = {
 
 // Proxy API integration to be in server to better handle auth
 // UI for business logic ONLY
-const uat = 'https://api-uat.corelogic.asia/sandbox';
-// const prod = 'https://api.corelogic.asia';
+const URLS = {
+  UAT: 'https://api-uat.corelogic.asia/sandbox',
+  PROD: 'https://api.corelogic.asia',
+};
 
 // Address Match
 // [unitNumber] / [streetNumber] [streetName] [streetType] [suburb] [stateCode] [postcode]
 function propertyAPI(app) {
-  // Can this intercept and stub the response instead?
-  // This needs header authenticated Bearer token
   app.get(paths.search, (req, res) => {
-    if (process.env.NODE_ENV === 'development') return useMocks([req, res], paths.search);
-    axios
-      .get(`${uat}/sandbox/property/au/v2/suggest.json?q=1%20aardvark%20st`)
-      .then((response) => {
-        console.log(response.data);
-      })
+    const NODE_ENV = process.env.NODE_ENV.toUpperCase();
+    // Use mocks in development
+    // Next level: Can this intercept and stub the response instead?
+    if (NODE_ENV === 'development') return useMocks([req, res], paths.search);
+    return axios
+      .get(`${URLS[NODE_ENV]}/property/au/v2/suggest.json?q=${req.query.address}`)
+      .then((response) => res.status(response.status).send(response.data))
       .catch((error) => {
-        console.log(error);
+        if (error.response) {
+          console.log('Error response', error.response);
+          return res.status(error.response.status).send(error.response.data);
+        } if (error.request) {
+          console.log('Error request', error.request);
+          return res.status(504);
+        }
+        return res.status(500);
       });
   });
 }

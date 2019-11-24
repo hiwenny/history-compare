@@ -10,7 +10,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <button onClick={() => axios.get('/search?address=1%20aardvark%20st')}>Test</button>
+        <button onClick={() => axios.get('/search?address=1%20aardvark%20st').then((res) => console.log('@@ response', res))}>Test</button>
         <button onClick={() => axios.get('/search?address=wrong%20street')}>Test fail</button>
       </header>
     </div>

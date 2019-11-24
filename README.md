@@ -17,9 +17,11 @@ Initial design is to test out CoreLogic APIs, specifically to compare the histor
 - [Design Considerations](#design-considerations)
 
 ## Usage
-Public access has been de-scoped by changing its use case to private use only. 
+Public access has been de-scoped by changing its use case to private use only. Private use here means cloning this repo and running the app locally.
 
-Private use here means cloning this repo and running the app locally, requiring you to set up a local `.env` to contain your credentials for third-party integrations, as opposed to a proper deployment script. (TBC) I will included a blank `.env` with comments to list the required credentials.
+**You need to pass in `$AUTH_TOKEN` when running UAT to use the actual CoreLogic APIs**
+
+DEV uses local mocked response so it doesn't need authentication.
 
 To open it up properly there's a lot of work setting up proper authentication and API key management. This is not worth the effort should we go down the path of `data entry` instead of `third party integration`, so I'm keeping it light for POC.
 
@@ -36,6 +38,11 @@ Server is at [http://localhost:8080](http://localhost:8080).
 
 The page will reload if you make edits.<br />
 You will also see any lint errors in the console.
+
+### `AUTH_TOKEN=${YOUR_AUTH_TOKEN} yarn uat`
+Runs app in UAT mode, where it's fully integrated with test APIs.
+
+To run this you need to pass in your Authorization token.
 
 ### `yarn test`
 
