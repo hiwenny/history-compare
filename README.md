@@ -42,7 +42,7 @@ You will also see any lint errors in the console.
 ### `AUTH_TOKEN=${YOUR_AUTH_TOKEN} yarn uat`
 Runs app in UAT mode, where it's fully integrated with test APIs.
 
-To run this you need to pass in your Authorization token.
+To run this you need to pass in your Authorization token, which is a shortcut to bypass the whole OAuth proper authentication. You can get the token through CoreLogic's Developer Swagger portal in any of their API demo.
 
 ### `yarn test`
 
