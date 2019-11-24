@@ -1,4 +1,6 @@
+/* eslint-disable react/jsx-filename-extension */
 import React from 'react';
+import axios from 'axios';
 import logo from './logo.svg';
 import './App.css';
 
@@ -8,17 +10,8 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <button onClick={() => axios.get('/search?address=1%20aardvark%20st').then((res) => console.log('@@ response', res))}>Test</button>
+        <button onClick={() => axios.get('/search?address=wrong%20street')}>Test fail</button>
       </header>
     </div>
   );
