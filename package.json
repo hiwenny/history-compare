@@ -24,8 +24,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "server": "node server/index.js $NODE_ENV $AUTH_TOKEN",
-    "dev": "NODE_ENV=development concurrently --kill-others \"npm run server\" \"npm run start\"",
-    "uat": "NODE_ENV=uat concurrently --kill-others \"npm run server\" \"npm run start\""
+    "dev": "NODE_ENV=DEVELOPMENT concurrently --kill-others \"npm run server\" \"npm run start\"",
+    "uat": "NODE_ENV=UAT concurrently --kill-others \"npm run server\" \"npm run start\""
   },
   "eslintConfig": {
     "extends": "react-app"
