@@ -76,6 +76,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
+        <input type="text" placeholder="Enter address here..." />
         {/* sample */}
         <DataTable value={sampleData}>
           {sampleShowColumns.map((col) => (
@@ -83,14 +84,30 @@ function App() {
           ))}
         </DataTable>
         <button
+          type="button"
           onClick={() => axios
             .get('/search?address=1%20aardvark%20st')
-            .then((res) => console.log('@@ response', res))}
+            .then((res) => console.log('@@ response', res))
+            .catch((err) => console.log(err))}
         >
-          Test
+          Test search
         </button>
-        <button onClick={() => axios.get('/search?address=wrong%20street')}>
-          Test fail
+        <button
+          type="button"
+          onClick={() => axios.get('/search?address=wrong%20street')
+            .catch((err) => console.log(err))}
+
+        >
+          Test search fail
+        </button>
+        <button
+          type="button"
+          onClick={() => axios
+            .get('/details?propertyId=1')
+            .then((res) => console.log('@@ property details', res))
+            .catch((err) => console.log(err))}
+        >
+          Test details
         </button>
       </header>
     </div>
