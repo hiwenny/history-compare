@@ -3,8 +3,8 @@
 
 ### Base functionality:
 - ~~Search exact property~~
-- Fetch price history data
-- Display property data in table
+- Display property details data in table
+- Display price history data
 - Export to pdf/csv
 
 ### Enhancement state data:

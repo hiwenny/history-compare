@@ -168,7 +168,46 @@ const suggestions = {
   },
 };
 
+const details = {
+  1: {
+    propertyType: 'HOUSE',
+    propertySubType: 'House: One Storey / Lowset',
+    propertySubTypeShort: 'One Storey / Lowset',
+    beds: 3,
+    baths: 2,
+    carSpaces: 2,
+    lockUpGarages: 0,
+    landArea: 0,
+    isCalculatedLandArea: true,
+    landAreaSource: 'Calculated',
+  },
+  2: {
+    propertyType: 'HOUSE',
+    propertySubType: 'House',
+    beds: 3,
+    baths: 2,
+    carSpaces: 2,
+    lockUpGarages: 2,
+    landArea: 385,
+    isCalculatedLandArea: false,
+    landAreaSource: 'Other',
+  },
+  3: {
+    propertyType: 'HOUSE',
+    propertySubType: 'House: One Storey / Lowset',
+    propertySubTypeShort: 'One Storey / Lowset',
+    beds: 3,
+    baths: 2,
+    carSpaces: 2,
+    lockUpGarages: 0,
+    landArea: 0,
+    isCalculatedLandArea: true,
+    landAreaSource: 'Calculated',
+  },
+};
+
 module.exports = {
   authentication,
   suggestions,
+  details,
 };
