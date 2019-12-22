@@ -10,19 +10,20 @@ function App() {
       <ErrorBoundary>
         <header className="App-header">
           <input type="text" placeholder="Enter address here..." />
+          <button type="button" onClick={() => { throw new Error('Something'); }}>Try error throwing</button>
           <button
             type="button"
             onClick={() => axios
               .get('/search?address=1%20aardvark%20st')
               .then((res) => console.log('@@ response', res))
-              .catch((err) => console.log(err))}
+              .catch((err) => console.error(err))}
           >
           Test search
           </button>
           <button
             type="button"
             onClick={() => axios.get('/search?address=wrong%20street')
-              .catch((err) => console.log(err))}
+              .catch((err) => console.error(err))}
           >
           Test search fail
           </button>
@@ -31,7 +32,7 @@ function App() {
             onClick={() => axios
               .get('/details?propertyId=1')
               .then((res) => console.log('@@ property details', res))
-              .catch((err) => console.log(err))}
+              .catch((err) => console.error(err))}
           >
           Test details
           </button>
