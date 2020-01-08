@@ -45,7 +45,9 @@ export default class SearchBar extends React.Component {
   render() {
     // TODO: style Submit button to be on the same line as the search bar.
     // TODO: render results in a dropdown table.
-    // TODO: add an Add button to add the selected  result to the comparison table.
+    // TODO: add an Add button to "add" the selected result
+    // TODO: chain the "add" operation to use the property ID to get the full details,
+    //          then add it to the compaprison table.
     return (
       <form autoComplete="off" onSubmit={this.handleSubmit}>
         <TextField
