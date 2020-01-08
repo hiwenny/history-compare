@@ -2,10 +2,9 @@
 import React from 'react';
 import axios from 'axios';
 import { makeStyles } from '@material-ui/core/styles';
-import TextField from '@material-ui/core/TextField';
 import ErrorBoundary from './Components/ErrorBoundary';
 import Table from './Components/Table';
-
+import SearchBar from './Components/SearchBar';
 
 // --- sample data
 
@@ -19,16 +18,21 @@ const sample = [
 
 function createData(id, dessert, calories, fat, carbs, protein) {
   return {
-    id, dessert, calories, fat, carbs, protein,
+    id,
+    dessert,
+    calories,
+    fat,
+    carbs,
+    protein,
   };
 }
 
 const rows = [];
 
-// for (let i = 0; i < 1; i += 1) {
-//   const randomSelection = sample[Math.floor(Math.random() * sample.length)];
-//   rows.push(createData(i, ...randomSelection));
-// }
+for (let i = 0; i < 2; i += 1) {
+  const randomSelection = sample[Math.floor(Math.random() * sample.length)];
+  rows.push(createData(i, ...randomSelection));
+}
 
 const columns = [
   {
@@ -85,20 +89,17 @@ function App() {
     <div className={classes.root}>
       <ErrorBoundary>
         <h1>Price History Comparison</h1>
-        <TextField
-          id="standard-full-width"
-          fullWidth
-          placeholder="Enter address"
-          style={{ margin: 8 }}
-          helperText="Example: 1 George Street, Sydney NSW 2000"
-          margin="normal"
-          InputLabelProps={{
-            shrink: true,
-          }}
-        />
+        <SearchBar />
         <hr />
         <Table rows={rows} columns={columns} />
-        <button type="button" onClick={() => { throw new Error('Something'); }}>Try error throwing</button>
+        <button
+          type="button"
+          onClick={() => {
+            throw new Error('Something');
+          }}
+        >
+          Try error throwing
+        </button>
         <button
           type="button"
           onClick={() => axios
@@ -110,8 +111,7 @@ function App() {
         </button>
         <button
           type="button"
-          onClick={() => axios.get('/search?address=wrong%20street')
-            .catch((err) => console.error(err))}
+          onClick={() => axios.get('/search?address=wrong%20street').catch((err) => console.error(err))}
         >
           Test search fail
         </button>

@@ -153,5 +153,3 @@ export default function ReactVirtualizedTable({rows, columns}) {
     </Paper>
   );
 }
-
-// // remember to put in propertyId as key to prevent rerendering**
