@@ -1,6 +1,7 @@
 import React from 'react';
 import TextField from '@material-ui/core/TextField';
 import Input from '@material-ui/core/Input';
+import axios from 'axios';
 
 /** Some considerations
  * The input value is self-contained in this Component because it's not currently used anywhere else.
@@ -12,14 +13,29 @@ export default class SearchBar extends React.Component {
     super();
     this.state = {
       inputAddress: null,
+      searchResults: null,
+      error: null,
     };
+    this.validate = this.validate.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
 
+  validate(input) {
+    // TODO: validate and sanitize. Either custom or use a library.
+    return input;
+  }
+
   handleSubmit(e) {
     e.preventDefault();
-    console.log('submitting', this.state.inputAddress);
+    const validatedAddress = this.validate(this.state.inputAddress);
+    axios
+      .get(`/search?address=${validatedAddress}`)
+      .then((res) => this.setState({ searchResults: res }))
+      .catch((err) => {
+        this.setState({ error: err });
+        console.error(err);
+      });
   }
 
   handleChange(e) {
@@ -27,6 +43,9 @@ export default class SearchBar extends React.Component {
   }
 
   render() {
+    // TODO: style Submit button to be on the same line as the search bar.
+    // TODO: render results in a dropdown table.
+    // TODO: add an Add button to add the selected  result to the comparison table.
     return (
       <form autoComplete="off" onSubmit={this.handleSubmit}>
         <TextField
